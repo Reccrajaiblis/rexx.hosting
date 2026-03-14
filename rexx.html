@@ -13,14 +13,12 @@
   --cyan: #00d4ff;
   --green: #00ff88;
   --orange: #ff6b00;
+  --yellow: #ffd600;
+  --purple: #b347ff;
   --text: #c8d8e8;
   --muted: #4a6080;
-  --glow-c: rgba(0,212,255,0.15);
-  --glow-g: rgba(0,255,136,0.15);
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
-
 body {
   font-family: 'Rajdhani', sans-serif;
   background: var(--bg);
@@ -28,8 +26,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* GRID BG */
 body::before {
   content: '';
   position: fixed;
@@ -41,239 +37,143 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
-
-/* GLOW ORBS */
 .orb {
   position: fixed;
   border-radius: 50%;
   filter: blur(80px);
   pointer-events: none;
   z-index: 0;
-  opacity: 0.4;
 }
-.orb1 { width:400px; height:400px; background:rgba(0,212,255,0.08); top:-100px; right:-100px; }
-.orb2 { width:350px; height:350px; background:rgba(0,255,136,0.06); bottom:-100px; left:-100px; }
+.orb1 { width:400px; height:400px; background:rgba(0,212,255,0.07); top:-100px; right:-100px; }
+.orb2 { width:350px; height:350px; background:rgba(0,255,136,0.05); bottom:-100px; left:-100px; }
 
-/* NAVBAR */
+/* NAV */
 nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(6,10,16,0.9);
+  background: rgba(6,10,16,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  padding: 14px 24px;
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 .logo {
   font-family: 'Orbitron', monospace;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 900;
   color: var(--cyan);
   text-shadow: 0 0 20px rgba(0,212,255,0.5);
   letter-spacing: 2px;
 }
-
 .logo span { color: var(--green); }
-
 .nav-wa {
   background: var(--green);
   color: #060a10;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 6px;
   font-weight: 700;
-  font-size: 0.9em;
+  font-size: 0.88em;
   text-decoration: none;
   letter-spacing: 1px;
   transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
-.nav-wa:hover { box-shadow: 0 0 20px rgba(0,255,136,0.4); transform: translateY(-1px); }
+.nav-wa:hover { box-shadow: 0 0 20px rgba(0,255,136,0.4); }
 
 /* HERO */
 .hero {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 70px 20px 50px;
+  padding: 60px 20px 40px;
 }
-
 .hero-badge {
   display: inline-block;
   background: rgba(0,212,255,0.1);
   border: 1px solid rgba(0,212,255,0.3);
   color: var(--cyan);
-  font-size: 0.8em;
+  font-size: 0.78em;
   letter-spacing: 3px;
   text-transform: uppercase;
-  padding: 6px 16px;
+  padding: 5px 14px;
   border-radius: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
-
 .hero h1 {
   font-family: 'Orbitron', monospace;
   font-size: clamp(2em, 8vw, 3.5em);
   font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-
 .hero h1 .c { color: var(--cyan); text-shadow: 0 0 30px rgba(0,212,255,0.6); }
 .hero h1 .g { color: var(--green); text-shadow: 0 0 30px rgba(0,255,136,0.6); }
-
-.hero p {
-  color: var(--muted);
-  font-size: 1.1em;
-  max-width: 500px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
-
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.stat {
-  text-align: center;
-}
-.stat-num {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.6em;
-  font-weight: 700;
-  color: var(--cyan);
-}
-.stat-label {
-  font-size: 0.8em;
-  color: var(--muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+.hero p { color: var(--muted); font-size: 1.05em; max-width: 480px; margin: 0 auto; }
 
 /* SECTION */
 .section {
   position: relative;
   z-index: 1;
-  max-width: 900px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 20px 20px 50px;
+  padding: 10px 16px 40px;
 }
-
 .section-title {
   font-family: 'Orbitron', monospace;
-  font-size: 1em;
+  font-size: 0.78em;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--cyan);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
-
 .section-sub {
-  font-size: 1.6em;
+  font-size: 1.5em;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-/* CARDS GRID */
-.grid {
-  display: grid;
-  gap: 16px;
-}
-.grid-2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.grid-3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+/* GRID */
+.grid { display: grid; gap: 14px; }
+.g2 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 
 /* CARD */
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 22px;
+  border-radius: 14px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
   transition: all 0.3s;
 }
-
-.card::before {
+.card::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
+.card:hover { transform: translateY(-3px); }
+.card:hover::after { opacity: 1; }
 
-.card:hover {
-  border-color: rgba(0,212,255,0.3);
-  box-shadow: 0 8px 30px rgba(0,212,255,0.08);
-  transform: translateY(-3px);
-}
+.c-cyan::after { background: linear-gradient(90deg, transparent, var(--cyan), transparent); }
+.c-cyan:hover { border-color: rgba(0,212,255,0.3); box-shadow: 0 8px 30px rgba(0,212,255,0.08); }
 
-.card:hover::before { opacity: 1; }
+.c-green::after { background: linear-gradient(90deg, transparent, var(--green), transparent); }
+.c-green:hover { border-color: rgba(0,255,136,0.3); box-shadow: 0 8px 30px rgba(0,255,136,0.08); }
 
-.card.green-card::before {
-  background: linear-gradient(90deg, transparent, var(--green), transparent);
-}
-.card.green-card:hover {
-  border-color: rgba(0,255,136,0.3);
-  box-shadow: 0 8px 30px rgba(0,255,136,0.08);
-}
+.c-orange::after { background: linear-gradient(90deg, transparent, var(--orange), transparent); }
+.c-orange:hover { border-color: rgba(255,107,0,0.3); box-shadow: 0 8px 30px rgba(255,107,0,0.08); }
 
-.card.orange-card::before {
-  background: linear-gradient(90deg, transparent, var(--orange), transparent);
-}
-.card.orange-card:hover {
-  border-color: rgba(255,107,0,0.3);
-  box-shadow: 0 8px 30px rgba(255,107,0,0.08);
-}
+.c-yellow::after { background: linear-gradient(90deg, transparent, var(--yellow), transparent); }
+.c-yellow:hover { border-color: rgba(255,214,0,0.3); box-shadow: 0 8px 30px rgba(255,214,0,0.08); }
 
-.card-icon {
-  font-size: 2em;
-  margin-bottom: 12px;
-}
-
-.card-title {
-  font-family: 'Orbitron', monospace;
-  font-size: 0.95em;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 8px;
-  letter-spacing: 1px;
-}
-
-.card-desc {
-  font-size: 0.95em;
-  color: var(--muted);
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.price-tag {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.price-main {
-  font-family: 'Orbitron', monospace;
-  font-size: 1.4em;
-  font-weight: 700;
-  color: var(--green);
-}
-
-.price-unit {
-  font-size: 0.85em;
-  color: var(--muted);
-}
+.c-purple::after { background: linear-gradient(90deg, transparent, var(--purple), transparent); }
+.c-purple:hover { border-color: rgba(179,71,255,0.3); box-shadow: 0 8px 30px rgba(179,71,255,0.08); }
 
 .badge {
   display: inline-block;
@@ -282,20 +182,68 @@ nav {
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: 600;
 }
-.badge-cyan { background: rgba(0,212,255,0.12); color: var(--cyan); border: 1px solid rgba(0,212,255,0.25); }
-.badge-green { background: rgba(0,255,136,0.12); color: var(--green); border: 1px solid rgba(0,255,136,0.25); }
-.badge-orange { background: rgba(255,107,0,0.12); color: var(--orange); border: 1px solid rgba(255,107,0,0.25); }
+.b-cyan   { background: rgba(0,212,255,0.12);  color: var(--cyan);   border: 1px solid rgba(0,212,255,0.25); }
+.b-green  { background: rgba(0,255,136,0.12);  color: var(--green);  border: 1px solid rgba(0,255,136,0.25); }
+.b-orange { background: rgba(255,107,0,0.12);  color: var(--orange); border: 1px solid rgba(255,107,0,0.25); }
+.b-yellow { background: rgba(255,214,0,0.12);  color: var(--yellow); border: 1px solid rgba(255,214,0,0.25); }
+.b-purple { background: rgba(179,71,255,0.12); color: var(--purple); border: 1px solid rgba(179,71,255,0.25); }
+
+.card-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+.card-price {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.price-cyan   { color: var(--cyan); }
+.price-green  { color: var(--green); }
+.price-orange { color: var(--orange); }
+.price-yellow { color: var(--yellow); }
+.price-purple { color: var(--purple); }
+
+/* BENEFIT LIST */
+.benefit-list {
+  list-style: none;
+  margin-bottom: 16px;
+}
+.benefit-list li {
+  padding: 5px 0;
+  font-size: 0.95em;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.benefit-list li:last-child { border-bottom: none; }
+.benefit-list li::before {
+  content: '✓';
+  font-weight: 700;
+  font-size: 0.85em;
+  flex-shrink: 0;
+}
+.li-cyan   li::before { color: var(--cyan); }
+.li-green  li::before { color: var(--green); }
+.li-orange li::before { color: var(--orange); }
+.li-yellow li::before { color: var(--yellow); }
+.li-purple li::before { color: var(--purple); }
 
 /* ORDER BTN */
 .btn-order {
   display: block;
   width: 100%;
   text-align: center;
-  margin-top: 14px;
-  padding: 10px;
+  padding: 11px;
   border-radius: 8px;
   font-family: 'Rajdhani', sans-serif;
   font-size: 0.95em;
@@ -303,90 +251,70 @@ nav {
   letter-spacing: 1px;
   text-decoration: none;
   transition: all 0.2s;
+  border: none;
   cursor: pointer;
-  border: none;
 }
-
-.btn-cyan {
-  background: rgba(0,212,255,0.1);
-  color: var(--cyan);
-  border: 1px solid rgba(0,212,255,0.3);
-}
-.btn-cyan:hover {
-  background: var(--cyan);
-  color: #060a10;
-  box-shadow: 0 0 20px rgba(0,212,255,0.4);
-}
-
-.btn-green {
-  background: rgba(0,255,136,0.1);
-  color: var(--green);
-  border: 1px solid rgba(0,255,136,0.3);
-}
-.btn-green:hover {
-  background: var(--green);
-  color: #060a10;
-  box-shadow: 0 0 20px rgba(0,255,136,0.4);
-}
-
-.btn-orange {
-  background: rgba(255,107,0,0.1);
-  color: var(--orange);
-  border: 1px solid rgba(255,107,0,0.3);
-}
-.btn-orange:hover {
-  background: var(--orange);
-  color: #060a10;
-  box-shadow: 0 0 20px rgba(255,107,0,0.4);
-}
-
-/* DIVIDER */
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 10px 0 30px;
-}
+.ob-cyan   { background: rgba(0,212,255,0.1);  color: var(--cyan);   border: 1px solid rgba(0,212,255,0.3); }
+.ob-cyan:hover   { background: var(--cyan);   color: #060a10; box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+.ob-green  { background: rgba(0,255,136,0.1);  color: var(--green);  border: 1px solid rgba(0,255,136,0.3); }
+.ob-green:hover  { background: var(--green);  color: #060a10; box-shadow: 0 0 20px rgba(0,255,136,0.4); }
+.ob-orange { background: rgba(255,107,0,0.1);  color: var(--orange); border: 1px solid rgba(255,107,0,0.3); }
+.ob-orange:hover { background: var(--orange); color: #060a10; box-shadow: 0 0 20px rgba(255,107,0,0.4); }
+.ob-yellow { background: rgba(255,214,0,0.1);  color: var(--yellow); border: 1px solid rgba(255,214,0,0.3); }
+.ob-yellow:hover { background: var(--yellow); color: #060a10; box-shadow: 0 0 20px rgba(255,214,0,0.4); }
+.ob-purple { background: rgba(179,71,255,0.1); color: var(--purple); border: 1px solid rgba(179,71,255,0.3); }
+.ob-purple:hover { background: var(--purple); color: #060a10; box-shadow: 0 0 20px rgba(179,71,255,0.4); }
 
 /* PANEL TABLE */
-.panel-table {
+.ptable {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
-.panel-table th {
+.ptable th {
   text-align: left;
-  font-size: 0.8em;
+  font-size: 0.78em;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
-  padding: 10px 14px;
+  padding: 8px 12px;
   border-bottom: 1px solid var(--border);
 }
-.panel-table td {
-  padding: 12px 14px;
+.ptable td {
+  padding: 10px 12px;
   border-bottom: 1px solid rgba(26,45,69,0.5);
-  font-size: 1em;
+  font-size: 0.95em;
 }
-.panel-table tr:last-child td { border-bottom: none; }
-.panel-table tr:hover td { background: rgba(0,212,255,0.03); }
+.ptable tr:last-child td { border-bottom: none; }
+.ptable tr:hover td { background: rgba(0,212,255,0.03); }
+.td-s { color: #fff; font-weight: 600; }
+.td-p { color: var(--green); font-family: 'Orbitron', monospace; font-size: 0.88em; }
+.td-n { color: var(--cyan); font-size: 0.82em; }
 
-.td-storage { color: #fff; font-weight: 600; }
-.td-price { color: var(--green); font-family: 'Orbitron', monospace; font-size: 0.95em; }
-.td-type { color: var(--cyan); font-size: 0.85em; }
-
-/* NOKO CARDS */
-.noko-card {
+/* NOKO ROW */
+.noko-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(26,45,69,0.5);
 }
-.noko-flag { font-size: 1.8em; }
-.noko-info { flex: 1; }
-.noko-country { font-weight: 700; color: #fff; font-size: 1em; }
-.noko-sub { font-size: 0.85em; color: var(--muted); }
+.noko-row:last-child { border-bottom: none; }
+.noko-left { display: flex; align-items: center; gap: 10px; }
+.noko-flag { font-size: 1.5em; }
+.noko-country { font-weight: 600; color: #fff; }
+.noko-code { font-size: 0.82em; color: var(--muted); }
+.noko-price {
+  font-family: 'Orbitron', monospace;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--green);
+}
 
-/* CTA SECTION */
+/* DIVIDER */
+hr { border: none; border-top: 1px solid var(--border); margin: 6px 0 30px; }
+
+/* CTA */
 .cta {
   position: relative;
   z-index: 1;
@@ -395,12 +323,10 @@ nav {
   border-bottom: 1px solid var(--border);
   padding: 50px 20px;
   text-align: center;
-  margin: 20px 0;
 }
 .cta h2 {
   font-family: 'Orbitron', monospace;
-  font-size: clamp(1.4em, 5vw, 2em);
-  font-weight: 700;
+  font-size: clamp(1.3em, 5vw, 2em);
   color: #fff;
   margin-bottom: 10px;
 }
@@ -414,42 +340,24 @@ nav {
   padding: 14px 32px;
   border-radius: 8px;
   font-family: 'Orbitron', monospace;
-  font-size: 0.95em;
+  font-size: 0.9em;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 1px;
   transition: all 0.2s;
 }
-.btn-wa:hover {
-  box-shadow: 0 0 30px rgba(0,255,136,0.5);
-  transform: translateY(-2px);
-}
+.btn-wa:hover { box-shadow: 0 0 30px rgba(0,255,136,0.5); transform: translateY(-2px); }
 
-/* FOOTER */
 footer {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 24px;
+  padding: 22px;
   color: var(--muted);
-  font-size: 0.85em;
+  font-size: 0.82em;
   border-top: 1px solid var(--border);
 }
 footer span { color: var(--cyan); }
-
-/* ANIMATE */
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s ease forwards;
-}
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-.d1 { animation-delay: 0.1s; }
-.d2 { animation-delay: 0.2s; }
-.d3 { animation-delay: 0.3s; }
-.d4 { animation-delay: 0.4s; }
 </style>
 </head>
 <body>
@@ -460,395 +368,172 @@ footer span { color: var(--cyan); }
 <!-- NAVBAR -->
 <nav>
   <div class="logo">REXX<span>HOST</span></div>
-  <a href="https://wa.me/62882021583792" class="nav-wa" target="_blank">
-    📱 Order WA
-  </a>
+  <a href="https://wa.me/62882021583792" class="nav-wa" target="_blank">📱 Order WA</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-badge fade-up d1">⚡ Digital Store Indonesia</div>
-  <h1 class="fade-up d2">
-    <span class="c">REXX</span> <span class="g">HOSTING</span>
-  </h1>
-  <p class="fade-up d3">Panel Hosting, Nomor Kosong & Script Bot. Harga terjangkau, proses cepat, langsung aktif.</p>
-  <div class="hero-stats fade-up d4">
-    <div class="stat">
-      <div class="stat-num">3+</div>
-      <div class="stat-label">Layanan</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">24/7</div>
-      <div class="stat-label">Support</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Fast</div>
-      <div class="stat-label">Proses</div>
-    </div>
-  </div>
+  <div class="hero-badge">⚡ Digital Store Indonesia</div>
+  <h1><span class="c">REXX</span> <span class="g">HOSTING</span></h1>
+  <p>Panel Hosting, Nomor Kosong, Murbug & Script Bot. Harga terjangkau, proses cepat.</p>
 </div>
 
-<!-- PANEL HOSTING -->
+<!-- ===== PANEL ===== -->
 <div class="section">
   <div class="section-title">🖥️ Layanan 01</div>
   <div class="section-sub">Panel Hosting</div>
-
-  <div class="card fade-up">
-    <div class="badge badge-cyan">Pterodactyl Panel</div>
-    <table class="panel-table">
-      <thead>
-        <tr>
-          <th>Storage</th>
-          <th>Harga</th>
-          <th>Tipe</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="td-storage">1 GB</td>
-          <td class="td-price">Rp 1.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">2 GB</td>
-          <td class="td-price">Rp 2.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">5 GB</td>
-          <td class="td-price">Rp 5.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">10 GB</td>
-          <td class="td-price">Rp 10.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">Unlimited</td>
-          <td class="td-price">Rp 15.000</td>
-          <td class="td-type" style="color:var(--green)">🔥 Best Value</td>
-        </tr>
-        <tr>
-          <td class="td-storage">ADP</td>
-          <td class="td-price">Rp 20.000</td>
-          <td class="td-type" style="color:var(--orange)">⚡ Premium</td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Panel+Hosting" class="btn-order btn-cyan" target="_blank">
-      ⚡ Order Panel Hosting
-    </a>
-  </div>
-</div>
-
-<!-- NOMOR KOSONG -->
-<div class="section">
-  <div class="section-title">📱 Layanan 02</div>
-  <div class="section-sub">Nomor Kosong (Noko)</div>
-
-  <div class="grid grid-2">
-    <div class="card green-card fade-up d1">
-      <div class="badge badge-green">Murah</div>
-      <div class="noko-card">
-        <div class="noko-flag">🇦🇫🌍</div>
-        <div class="noko-info">
-          <div class="noko-country">Afghanistan & Afrika</div>
-          <div class="noko-sub">Nomor aktif siap pakai</div>
-        </div>
-        <div class="price-tag">
-          <span class="price-main">5K</span>
-        </div>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Noko+Afghanistan/Afrika" class="btn-order btn-green" target="_blank">Order</a>
-    </div>
-
-    <div class="card fade-up d2">
-      <div class="badge badge-cyan">Standard</div>
-      <div class="noko-card">
-        <div class="noko-flag">🇮🇩🇲🇾</div>
-        <div class="noko-info">
-          <div class="noko-country">Indonesia & Malaysia</div>
-          <div class="noko-sub">Nomor aktif siap pakai</div>
-        </div>
-        <div class="price-tag">
-          <span class="price-main">10K</span>
-        </div>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Noko+Indonesia/Malaysia" class="btn-order btn-cyan" target="_blank">Order</a>
-    </div>
-
-    <div class="card orange-card fade-up d3">
-      <div class="badge badge-orange">Premium</div>
-      <div class="noko-card">
-        <div class="noko-flag">🇺🇸🇷🇺</div>
-        <div class="noko-info">
-          <div class="noko-country">Amerika & Rusia</div>
-          <div class="noko-sub">Nomor aktif siap pakai</div>
-        </div>
-        <div class="price-tag">
-          <span class="price-main">15K</span>
-        </div>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Noko+Amerika/Rusia" class="btn-order btn-orange" target="_blank">Order</a>
+  <div class="grid">
+    <div class="card c-cyan">
+      <div class="badge b-cyan">Pterodactyl Panel</div>
+      <table class="ptable">
+        <thead>
+          <tr><th>Paket</th><th>Harga</th><th>Keterangan</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-s">2 GB</td><td class="td-p">Rp 2.000</td><td class="td-n">2GB/1K</td></tr>
+          <tr><td class="td-s">4 GB</td><td class="td-p">Rp 4.000</td><td class="td-n">2GB/1K</td></tr>
+          <tr><td class="td-s">6 GB</td><td class="td-p">Rp 6.000</td><td class="td-n">2GB/1K</td></tr>
+          <tr><td class="td-s">8 GB</td><td class="td-p">Rp 8.000</td><td class="td-n">2GB/1K</td></tr>
+          <tr><td class="td-s">10 GB</td><td class="td-p">Rp 10.000</td><td class="td-n">2GB/1K</td></tr>
+          <tr><td class="td-s">Unlimited</td><td class="td-p">Rp 5.000</td><td class="td-n" style="color:var(--green)">🔥 Best Value</td></tr>
+        </tbody>
+      </table>
+      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Panel+Hosting" class="btn-order ob-cyan" target="_blank">⚡ Order Panel</a>
     </div>
   </div>
 </div>
 
-<!-- SCRIPT BOT -->
+<!-- ===== PANEL PRIVATE ===== -->
 <div class="section">
-  <div class="section-title">🤖 Layanan 03</div>
-  <div class="section-sub">Script Run Bot</div>
+  <div class="section-title">🔒 Layanan 02</div>
+  <div class="section-sub">Panel Private</div>
+  <div class="card c-green">
+    <div class="badge b-green">Private</div>
+    <div class="card-title">Panel Private Unlimited</div>
+    <div class="card-price price-green">Rp 10.000</div>
+    <ul class="benefit-list li-green">
+      <li>Anti Delete — panel aman terjaga</li>
+      <li>Anti Down — uptime terjamin</li>
+      <li>Dijamin nyaman & stabil</li>
+    </ul>
+    <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Panel+Private" class="btn-order ob-green" target="_blank">⚡ Order Panel Private</a>
+  </div>
+</div>
 
-  <div class="grid grid-2">
-    <div class="card fade-up d1">
-      <div class="badge badge-cyan">Starter</div>
-      <div class="card-icon">🤖</div>
-      <div class="card-title">Script Bot Basic</div>
-      <div class="card-desc">Script bot siap pakai, langsung bisa dijalankan di server atau VPS lo.</div>
-      <div class="price-tag">
-        <span class="price-main">Rp 5.000</span>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Script+Bot+Basic+5k" class="btn-order btn-cyan" target="_blank">⚡ Order Sekarang</a>
+<!-- ===== RESELLER ===== -->
+<div class="section">
+  <div class="section-title">💼 Layanan 03</div>
+  <div class="section-sub">Reseller Panel</div>
+  <div class="card c-yellow">
+    <div class="badge b-yellow">Reseller</div>
+    <div class="card-title">Reseller Panel</div>
+    <div class="card-price price-yellow">Rp 5.000</div>
+    <ul class="benefit-list li-yellow">
+      <li>Bisa jual panel ke orang lain</li>
+      <li>Bisa create panel sepuasnya</li>
+      <li>Full akses — pokoknya BALMOD</li>
+    </ul>
+    <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Reseller+Panel" class="btn-order ob-yellow" target="_blank">⚡ Order Reseller</a>
+  </div>
+</div>
+
+<!-- ===== ADP ===== -->
+<div class="section">
+  <div class="section-title">👑 Layanan 04</div>
+  <div class="section-sub">ADP</div>
+  <div class="card c-orange">
+    <div class="badge b-orange">Premium ADP</div>
+    <div class="card-title">ADP Package</div>
+    <div class="card-price price-orange">Rp 15.000</div>
+    <ul class="benefit-list li-orange">
+      <li>Bisa jual Reseller ke orang lain</li>
+      <li>Bisa jual Panel</li>
+      <li>Bisa buat Panel sendiri</li>
+    </ul>
+    <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+ADP" class="btn-order ob-orange" target="_blank">⚡ Order ADP</a>
+  </div>
+</div>
+
+<!-- ===== MURBUG ===== -->
+<div class="section">
+  <div class="section-title">🐛 Layanan 05</div>
+  <div class="section-sub">Murbug</div>
+  <div class="grid g2">
+    <div class="card c-cyan">
+      <div class="badge b-cyan">Biasa</div>
+      <div class="card-title">Murbug Biasa</div>
+      <div class="card-price price-cyan">Rp 10.000</div>
+      <ul class="benefit-list li-cyan">
+        <li>Diajari cara bug</li>
+        <li>Bug sepuasnya</li>
+      </ul>
+      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Murbug+Biasa" class="btn-order ob-cyan" target="_blank">⚡ Order Murbug Biasa</a>
     </div>
-
-    <div class="card green-card fade-up d2">
-      <div class="badge badge-green">Pro</div>
-      <div class="card-icon">⚡</div>
-      <div class="card-title">Script Bot Pro</div>
-      <div class="card-desc">Script bot versi lengkap dengan fitur lebih banyak dan support setup.</div>
-      <div class="price-tag">
-        <span class="price-main">Rp 10.000</span>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Script+Bot+Pro+10k" class="btn-order btn-green" target="_blank">⚡ Order Sekarang</a>
+    <div class="card c-purple">
+      <div class="badge b-purple">VIP</div>
+      <div class="card-title">Murbug VIP</div>
+      <div class="card-price price-purple">Rp 15.000</div>
+      <ul class="benefit-list li-purple">
+        <li>Bisa bug grup</li>
+        <li>Dijamin C1</li>
+        <li>Dapat Panel 5GB gratis</li>
+        <li>2 Bot Bug bonus</li>
+      </ul>
+      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Murbug+VIP" class="btn-order ob-purple" target="_blank">⚡ Order Murbug VIP</a>
     </div>
   </div>
 </div>
 
-<!-- PEMBAYARAN -->
+<!-- ===== NOKOS ===== -->
 <div class="section">
-  <div class="section-title">💳 Pembayaran</div>
-  <div class="section-sub">Metode Pembayaran</div>
-
-  <div class="grid grid-2">
-    <div class="card green-card fade-up d1">
-      <div class="badge badge-green">Dana</div>
-      <div class="card-icon">💚</div>
-      <div class="card-title">Transfer Dana</div>
-      <div class="card-desc">Transfer ke nomor Dana berikut setelah order:</div>
-      <div style="background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.2);border-radius:8px;padding:12px;margin-top:10px;text-align:center;">
-        <div style="font-size:0.8em;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;">Nomor Dana</div>
-        <div style="font-family:'Orbitron',monospace;font-size:1.2em;color:var(--green);letter-spacing:2px;">0882-0215-67881</div>
-        <div style="font-size:0.82em;color:var(--muted);margin-top:4px;">a/n Rexx Hosting</div>
+  <div class="section-title">📱 Layanan 06</div>
+  <div class="section-sub">Nomor Kosong (Nokos)</div>
+  <div class="card c-green">
+    <div class="badge b-green">Lokal &amp; Internasional</div>
+    <div class="noko-row">
+      <div class="noko-left">
+        <div class="noko-flag">🇮🇩</div>
+        <div><div class="noko-country">Indonesia</div><div class="noko-code">+62</div></div>
       </div>
+      <div class="noko-price">Rp 2.000</div>
     </div>
-
-    <div class="card fade-up d2">
-      <div class="badge badge-cyan">QRIS</div>
-      <div class="card-icon">📱</div>
-      <div class="card-title">Bayar via QRIS</div>
-      <div class="card-desc">Scan QR code di bawah menggunakan aplikasi apapun:</div>
-      <div style="text-align:center;margin-top:10px;">
-        <img src="https://raw.githubusercontent.com/Reccrajaiblis/rexx.hosting/refs/heads/main/IMG-20250822-WA0063.jpg"
-          alt="QR Code QRIS"
-          style="width:100%;max-width:200px;border-radius:12px;border:2px solid var(--border);">
+    <div class="noko-row">
+      <div class="noko-left">
+        <div class="noko-flag">🇦🇫</div>
+        <div><div class="noko-country">Afghanistan</div><div class="noko-code">+93</div></div>
       </div>
+      <div class="noko-price">Rp 5.000</div>
     </div>
-  </div>
-
-  <div class="card fade-up" style="margin-top:16px;text-align:center;">
-    <div style="font-size:0.9em;color:var(--muted);line-height:1.8;">
-      ⚡ Setelah transfer, kirim <strong style="color:#fff;">bukti pembayaran</strong> ke WA kami<br>
-      📦 Produk langsung diproses setelah pembayaran dikonfirmasi
+    <div class="noko-row">
+      <div class="noko-left">
+        <div class="noko-flag">🌍</div>
+        <div><div class="noko-country">Afrika (Senegal dll)</div><div class="noko-code">+221</div></div>
+      </div>
+      <div class="noko-price">Rp 10.000</div>
     </div>
+    <div class="noko-row">
+      <div class="noko-left">
+        <div class="noko-flag">🇷🇺</div>
+        <div><div class="noko-country">Rusia</div><div class="noko-code">+7</div></div>
+      </div>
+      <div class="noko-price">Rp 20.000</div>
+    </div>
+    <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Nomor+Kosong" class="btn-order ob-green" style="margin-top:16px" target="_blank">⚡ Order Nokos</a>
   </div>
 </div>
 
 <!-- CTA -->
 <div class="cta">
   <h2>Siap Order? 🚀</h2>
-  <p>Hubungi kami langsung via WhatsApp. Proses cepat, harga bersahabat.</p>
+  <p>Hubungi langsung via WhatsApp. Proses cepat, harga bersahabat.</p>
   <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order" class="btn-wa" target="_blank">
     📱 Chat WhatsApp Sekarang
   </a>
 </div>
 
-<!-- FOOTER -->
 <footer>
   © 2026 <span>Rexx Hosting</span> · WA: +62 882-0215-83792 · All rights reserved
 </footer>
 
 </body>
-  </html>  <h1 class="fade-up d2">
-    <span class="c">REXX</span> <span class="g">HOSTING</span>
-  </h1>
-  <p class="fade-up d3">Panel Hosting, Nomor Kosong & Script Bot. Harga terjangkau, proses cepat, langsung aktif.</p>
-  <div class="hero-stats fade-up d4">
-    <div class="stat">
-      <div class="stat-num">3+</div>
-      <div class="stat-label">Layanan</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">24/7</div>
-      <div class="stat-label">Support</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">Fast</div>
-      <div class="stat-label">Proses</div>
-    </div>
-  </div>
-</div>
-
-<!-- PANEL HOSTING -->
-<div class="section">
-  <div class="section-title">🖥️ Layanan 01</div>
-  <div class="section-sub">Panel Hosting</div>
-
-  <div class="card fade-up">
-    <div class="badge badge-cyan">Pterodactyl Panel</div>
-    <table class="panel-table">
-      <thead>
-        <tr>
-          <th>Storage</th>
-          <th>Harga</th>
-          <th>Tipe</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="td-storage">1 GB</td>
-          <td class="td-price">Rp 1.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">2 GB</td>
-          <td class="td-price">Rp 2.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">5 GB</td>
-          <td class="td-price">Rp 5.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">10 GB</td>
-          <td class="td-price">Rp 10.000</td>
-          <td class="td-type">Per GB</td>
-        </tr>
-        <tr>
-          <td class="td-storage">Unlimited</td>
-          <td class="td-price">Rp 15.000</td>
-          <td class="td-type" style="color:var(--green)">🔥 Best Value</td>
-        </tr>
-        <tr>
-          <td class="td-storage">ADP</td>
-          <td class="td-price">Rp 20.000</td>
-          <td class="td-type" style="color:var(--orange)">⚡ Premium</td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Panel+Hosting" class="btn-order btn-cyan" target="_blank">
-      ⚡ Order Panel Hosting
-    </a>
-  </div>
-</div>
-
-<!-- NOMOR KOSONG -->
-<div class="section">
-  <div class="section-title">📱 Layanan 02</div>
-  <div class="section-sub">Nomor Kosong (Noko)</div>
-
-  <div class="grid grid-2">
-    <div class="card green-card fade-up d1">
-      <div class="badge badge-green">Murah</div>
-      <div class="noko-card">
-        <div class="noko-flag">🇦🇫🌍</div>
-        <div class="noko-info">
-          <div class="noko-country">Afghanistan & Afrika</div>
-          <div class="noko-sub">Nomor aktif siap pakai</div>
-        </div>
-        <div class="price-tag">
-          <span class="price-main">5K</span>
-        </div>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Noko+Afghanistan/Afrika" class="btn-order btn-green" target="_blank">Order</a>
-    </div>
-
-    <div class="card fade-up d2">
-      <div class="badge badge-cyan">Standard</div>
-      <div class="noko-card">
-        <div class="noko-flag">🇮🇩🇲🇾</div>
-        <div class="noko-info">
-          <div class="noko-country">Indonesia & Malaysia</div>
-          <div class="noko-sub">Nomor aktif siap pakai</div>
-        </div>
-        <div class="price-tag">
-          <span class="price-main">10K</span>
-        </div>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Noko+Indonesia/Malaysia" class="btn-order btn-cyan" target="_blank">Order</a>
-    </div>
-
-    <div class="card orange-card fade-up d3">
-      <div class="badge badge-orange">Premium</div>
-      <div class="noko-card">
-        <div class="noko-flag">🇺🇸🇷🇺</div>
-        <div class="noko-info">
-          <div class="noko-country">Amerika & Rusia</div>
-          <div class="noko-sub">Nomor aktif siap pakai</div>
-        </div>
-        <div class="price-tag">
-          <span class="price-main">15K</span>
-        </div>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Noko+Amerika/Rusia" class="btn-order btn-orange" target="_blank">Order</a>
-    </div>
-  </div>
-</div>
-
-<!-- SCRIPT BOT -->
-<div class="section">
-  <div class="section-title">🤖 Layanan 03</div>
-  <div class="section-sub">Script Run Bot</div>
-
-  <div class="grid grid-2">
-    <div class="card fade-up d1">
-      <div class="badge badge-cyan">Starter</div>
-      <div class="card-icon">🤖</div>
-      <div class="card-title">Script Bot Basic</div>
-      <div class="card-desc">Script bot siap pakai, langsung bisa dijalankan di server atau VPS lo.</div>
-      <div class="price-tag">
-        <span class="price-main">Rp 5.000</span>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Script+Bot+Basic+5k" class="btn-order btn-cyan" target="_blank">⚡ Order Sekarang</a>
-    </div>
-
-    <div class="card green-card fade-up d2">
-      <div class="badge badge-green">Pro</div>
-      <div class="card-icon">⚡</div>
-      <div class="card-title">Script Bot Pro</div>
-      <div class="card-desc">Script bot versi lengkap dengan fitur lebih banyak dan support setup.</div>
-      <div class="price-tag">
-        <span class="price-main">Rp 10.000</span>
-      </div>
-      <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order+Script+Bot+Pro+10k" class="btn-order btn-green" target="_blank">⚡ Order Sekarang</a>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<div class="cta">
-  <h2>Siap Order? 🚀</h2>
-  <p>Hubungi kami langsung via WhatsApp. Proses cepat, harga bersahabat.</p>
-  <a href="https://wa.me/62882021583792?text=Halo+Rexx+Hosting,+saya+mau+order" class="btn-wa" target="_blank">
-    📱 Chat WhatsApp Sekarang
-  </a>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  © 2026 <span>Rexx Hosting</span> · WA: +62 882-0215-83792 · All rights reserved
-</footer>
-
-</body>
-</html>
+  </html>
